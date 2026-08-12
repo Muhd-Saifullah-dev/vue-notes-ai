@@ -12,7 +12,7 @@ export async function fetchNotes(): Promise<Note[]> {
 }
 
 export async function createNote(input: NoteInput): Promise<Note> {
-  const { data, error } = await supabase.from('notes').insert('input').select().single()
+  const { data, error } = await supabase.from('notes').insert(input).select().single()
   if (error) throw error
   return data
 }

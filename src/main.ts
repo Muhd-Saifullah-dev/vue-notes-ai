@@ -4,7 +4,11 @@ import { VueQueryPlugin } from '@tanstack/vue-query'
 import App from './App.vue'
 import router from './router'
 import { queryClient } from './lib/queryClient.ts'
-import { VueSpinnersPlugin } from 'vue3-spinners';
+import { VueSpinnersPlugin } from 'vue3-spinners'
+import { useAuth } from './composables/useAuth.ts'
+
+const { initAuth } = useAuth()
+await initAuth()
 const app = createApp(App)
 
 app.use(router)
